@@ -1,0 +1,28 @@
+<h1>Kintai Memo</h1>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>In</th>
+    <th>Out</th>
+    <th>Note</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @attendances.each do |attendance| %>
+  <tr>
+    <td><%= strf_day(attendance.date) %></td>
+    <td><%= strf_time(attendance.in) %></td>
+    <td><%= strf_time(attendance.out) %></td>
+    <td><%= attendance.note %></td>
+    <td><%= link_to 'Edit', edit_attendance_path(attendance) %></td>
+    <td><%= link_to 'Destroy', attendance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New', new_attendance_path %>

@@ -1,0 +1,33 @@
+<%= form_for(@attendance) do |f| %>
+  <% if @attendance.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@attendance.errors.count, "error") %> prohibited this attendance from being saved:</h2>
+
+      <ul>
+      <% @attendance.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.date_select :date, :use_month_numbers => true %>
+  </div>
+  <div class="field">
+    <%= f.label :in %><br />
+    <%= f.time_select :in, :minute_step => 10 %>
+  </div>
+  <div class="field">
+    <%= f.label :out %><br />
+    <%= f.time_select :out, :minute_step => 10 %>
+  </div>
+  <div class="field">
+    <%= f.label :note %><br />
+    <%= f.text_field :note %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

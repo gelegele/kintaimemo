@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  date: 2012-07-13
+  in: 2012-07-13 09:27:32
+  out: 2012-07-13 09:27:32
+  note: MyString
+
+two:
+  date: 2012-07-13
+  in: 2012-07-13 09:27:32
+  out: 2012-07-13 09:27:32
+  note: MyString
