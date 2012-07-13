@@ -22,8 +22,8 @@ config/application.rb
     rails s
 
 ###ローカル動作確認
-http://localhost:3000/
-http://localhost:3000/attendances
+<http://localhost:3000/>
+<http://localhost:3000/attendances>
 
 ###Gitコミット
     git init
@@ -55,5 +55,5 @@ Gemfile
     heroku run rake db:migrate
 
 ###Heroku動作確認
-    http://kintaimemo.heroku.com/
-    http://kintaimemo.heroku.com/attendances
+<http://kintaimemo.heroku.com/>
+<http://kintaimemo.heroku.com/attendances>
