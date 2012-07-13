@@ -5,55 +5,55 @@
 
 ※ローカルにsqliteの準備
 
-##アプリ生成
-rails new kintaimemo
+###アプリ生成
+    rails new kintaimemo
 
-##タイムゾーン設定
+###タイムゾーン設定
 config/application.rb
->config.time_zone = 'Tokyo'
+    config.time_zone = 'Tokyo'
 
 ##勤怠 MVC生成
->rails g scaffold Attendance date:date in:time out:time note:string
+    rails g scaffold Attendance date:date in:time out:time note:string
 
-##ローカルDBマイグレーション(sqlite)
->rake db:migrate
+###ローカルDBマイグレーション(sqlite)
+    rake db:migrate
 
-##ローカルサーバー起動
->rails s
+###ローカルサーバー起動
+    rails s
 
-##ローカル動作確認
->http://localhost:3000/
->http://localhost:3000/attendances
+###ローカル動作確認
+http://localhost:3000/
+http://localhost:3000/attendances
 
-##Gitコミット
->git init
->git add .
->git commit -m 'first commit'
+###Gitコミット
+    git init
+    git add .
+    git commit -m 'first commit'
 
 
 #Heroku対応
 
-##DBにPostgresを指定
+###DBにPostgresを指定
 Gemfile
->group :development, :test do
->  gem 'sqlite3'
->end
->group :production do
->  gem 'pg'
->end
+    group :development, :test do
+      gem 'sqlite3'
+    end
+    group :production do
+      gem 'pg'
+    end
 
-##Herokuアプリ生成
->heroku create
+###Herokuアプリ生成
+    heroku create
 
-##Herokuアプリ名の任意指定
->heroku rename kintaimemo
+###Herokuアプリ名の任意指定
+    heroku rename kintaimemo
 
-#GitでHerokuにプッシュ
->git push heroku master
+###GitでHerokuにプッシュ
+    git push heroku master
 
-#Heroku DBマイグレーション(postgres)
->heroku run rake db:migrate
+###Heroku DBマイグレーション(postgres)
+    heroku run rake db:migrate
 
-##Heroku動作確認
->http://kintaimemo.heroku.com/
->http://kintaimemo.heroku.com/attendances
+###Heroku動作確認
+    http://kintaimemo.heroku.com/
+    http://kintaimemo.heroku.com/attendances
