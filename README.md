@@ -12,7 +12,7 @@ rails new kintaimemo
 
 タイムゾーン設定
 ### config/application.rb ###
-+config.time_zone = 'Tokyo'
+ config.time_zone = 'Tokyo'
 
 勤怠 MVC生成
 rails g scaffold Attendance date:date in:time out:time note:string
@@ -37,13 +37,12 @@ Heroku対応
 
 DBにPostgresを指定
 ### Gemfile ###
--gem 'sqlite3'
-+group :development, :test do
-+  gem 'sqlite3'
-+end
-+group :production do
-+  gem 'pg'
-+end
+ group :development, :test do
+   gem 'sqlite3'
+ end
+ group :production do
+   gem 'pg'
+ end
 
 Herokuアプリ生成
 heroku create
