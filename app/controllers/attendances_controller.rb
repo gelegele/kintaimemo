@@ -2,7 +2,7 @@ class AttendancesController < ApplicationController
   # GET /attendances
   # GET /attendances.json
   def index
-    @attendances = Attendance.all(:order => 'date asc')
+    @attendances = Attendance.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,6 +25,7 @@ class AttendancesController < ApplicationController
   # GET /attendances/new.json
   def new
     @attendance = Attendance.new
+
     now = Time.now
     @attendance.in = Time.local(now.year, now.month, now.day, 9)
     @attendance.out = Time.local(now.year, now.month, now.day, 17, 30)
