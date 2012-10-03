@@ -46,6 +46,14 @@ class AttendancesController < ApplicationController
   def create
     @attendance = Attendance.new(params[:attendance])
 
+    # Change date of in and out.
+    @attendance.in = Time.local(
+      @attendance.date.year, @attendance.date.month, @attendance.date.day,
+      @attendance.in.hour, @attendance.in.min, @attendance.in.sec)
+    @attendance.out = Time.local(
+      @attendance.date.year, @attendance.date.month, @attendance.date.day,
+      @attendance.out.hour, @attendance.out.min, @attendance.out.sec)
+
     respond_to do |format|
       if @attendance.save
         format.html { redirect_to @attendance, notice: 'Attendance was successfully created.' }
