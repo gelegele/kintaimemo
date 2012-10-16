@@ -1,34 +1,45 @@
-<%= form_for(@attendance) do |f| %>
-  <% if @attendance.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@attendance.errors.count, "error") %> prohibited this attendance from being saved:</h2>
+<%= form_for @attendance, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
 
-      <ul>
-      <% @attendance.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+    <% if @attendance.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@attendance.errors.count, "error") %> prohibited this attendance from being saved:</h2>
+
+        <ul>
+        <% @attendance.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="control-group">
+      <%= f.label :date, :class => "control-label" %>
+      <div class="controls">
+        <%= f.date_select :date, :date_separator => '-', :use_month_numbers => true %>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :date %><br />
-    <%= f.date_select :date, :use_month_numbers => true %>
-  </div>
-  <div class="field">
-    <%= f.label :in %><br />
-    <%= f.time_select :in, :minute_step => 10 %>
-  </div>
-  <div class="field">
-    <%= f.label :out %><br />
-    <%= f.time_select :out, :minute_step => 10 %>
-  </div>
-  <div class="field">
-    <%= f.label :note %><br />
-    <%= f.text_field :note %>
-  </div>
-  <div class="form-actions">
-    <%= f.submit :class => "btn btn-primary"%>
-    <%= link_to 'Cancel', attendances_path, :class => "btn" %>
-  </div>
+    <div class="control-group">
+      <%= f.label :in, :class => "control-label" %>
+      <div class="controls">
+        <%= f.time_select :in, :minute_step => 10 %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :out, :class => "control-label" %>
+      <div class="controls">
+        <%= f.time_select :out, :minute_step => 10 %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :note, :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :note, :class => 'text_field' %>
+      </div>
+    </div>
+    <div class="form-actions">
+      <%= f.submit :class => "btn btn-primary"%>
+      <%= link_to 'Cancel', attendances_path, :class => "btn" %>
+    </div>
+  </fieldset>
 <% end %>
