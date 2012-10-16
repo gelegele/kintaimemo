@@ -17,6 +17,14 @@
  *= require_tree .
  */
 
+/* Changes paths to bootstrap img*/
+[class^="icon-"], [class*=" icon-"] {
+  background-image: url(<%= asset_path "glyphicons-halflings.png" %>);
+}
+.icon-white {
+  background-image: url(<%= asset_path "glyphicons-halflings-white.png" %>);
+}
+
 .btn-primary:visited, .btn-danger:visited {
 	color: #fff;
 }
