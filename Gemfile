@@ -44,5 +44,10 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 
+group :test, :development do
+  gem 'pry'
+  gem "minitest" # For rails c on cygwin
+end
+
 #gem 'twitter-bootstrap-rails'
 #gem 'less-rails-bootstrap'
