@@ -37,9 +37,11 @@
         <%= f.text_field :note, :class => 'text_field' %>
       </div>
     </div>
-    <div class="form-actions">
-      <%= f.submit :class => "btn btn-primary"%>
-      <%= link_to 'Cancel', attendances_path, :class => "btn" %>
+    <div class="control-group">
+      <div class="controls">
+        <%= f.submit :class => "btn btn-primary"%>
+        <%= link_to 'Cancel', attendances_path, :class => "btn" %>
+      </div>
     </div>
   </fieldset>
 <% end %>
