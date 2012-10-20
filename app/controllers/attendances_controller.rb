@@ -2,7 +2,10 @@ class AttendancesController < ApplicationController
   # GET /attendances
   # GET /attendances.json
   def index
-    @attendances = Attendance.all(sort: [[:date, :asc]])
+    @monthlies = Monthly.all.asc
+    @attendances = Attendance.all
+
+    #binding.pry
 
     respond_to do |format|
       format.html # index.html.erb

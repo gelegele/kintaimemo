@@ -62,5 +62,10 @@ module Kintaimemo
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # For rails g migration
+    config.generators do |g|
+      g.orm :active_record
+    end
   end
 end

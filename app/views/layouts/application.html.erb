@@ -8,6 +8,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
   <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
@@ -26,17 +27,9 @@
       </div>
     </div>
   </div>
-
+  
   <div class="container-fluid">
-    <div class="row-fluid">
-      <div class="span9">
-        <%= yield %>
-      </div>
-      <div class="span3">
-        <h2>Side Panel</h2>
-        <p>TODO</p>        
-      </div>
-    </div>
-  </div>
+    <%= yield %>
+  </div＞
 </body>
 </html>

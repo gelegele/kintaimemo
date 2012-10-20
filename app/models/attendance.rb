@@ -8,4 +8,6 @@ class Attendance
 
   validates :date, :presence => true, :uniqueness => {:message => 'already exists.'} 
   validates :in, :compare => {:compare_to => 'out', :type => :less_than}
+
+  default_scope asc(:date)
 end

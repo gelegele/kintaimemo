@@ -46,7 +46,8 @@ gem 'jquery-rails'
 
 group :test, :development do
   gem 'pry'
-  gem "minitest" # For rails c on cygwin
+  gem 'pry-rails'  # To use pry as rails console
+  gem "minitest"   # For rails c on cygwin
 end
 
 #gem 'twitter-bootstrap-rails'

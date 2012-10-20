@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  year: 2012
+  month: 9
+  status: requested
+
+two:
+  year: 2012
+  month: 10
+  status: not yet
