@@ -32,9 +32,24 @@
 
   <div class="span3">
     <h2>Month</h2>
-      <% @monthlies.each do |monthly| %>
-        <li><%= link_to "#{monthly.year}-#{monthly.month}", :action => "index", :monthly_id =>  monthly.id %></li>
-      <% end %>
+    <% @monthlies.each do |monthly| %>
+    <li><%= link_to "#{monthly.year}-#{monthly.month}", :action => "index", :monthly_id =>  monthly.id %></li>
+    <% end %>
+    <br/>
+    <a href="#newMonthlyModal" role="button" class="btn btn-primary" data-toggle="modal">New</a>
+    <!-- Modal -->
+    <div class="modal hide" id="newMonthlyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">New Monthly</h3>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+        <button class="btn btn-primary">Create</button>
+      </div>
+    </div>
   </div>
 </div>
 
