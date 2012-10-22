@@ -4,7 +4,7 @@ class Monthly
   field :month, :type => Integer
   field :status, :type => String
 
-  validates :year, :presence => true
+  validates :year, :presence => true, :uniqueness => {:scope => [:month]}
   validates :month, :presence => true
 
   default_scope asc(:year, :month)

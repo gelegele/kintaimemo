@@ -7,5 +7,7 @@ class CreateMonthlies < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :monthlies, [:year, :month], :unique => true
   end
 end

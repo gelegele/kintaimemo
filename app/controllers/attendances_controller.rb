@@ -3,6 +3,13 @@ class AttendancesController < ApplicationController
   # GET /attendances.json
   def index
     @monthlies = Monthly.all.asc
+    now = Time.now
+    @monthly = Monthly.new
+    @monthly.year = now.year
+    @monthly.month = now.month
+    @year_collection = [now.year - 1, now.year ,now.year + 1]
+    @month_collection = [1,2,3,4,5,6,7,8,9,10,11,12]
+
     @attendances = Attendance.all
 
     #binding.pry
