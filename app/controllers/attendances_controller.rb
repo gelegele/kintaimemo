@@ -8,7 +8,6 @@ class AttendancesController < ApplicationController
     @new_monthly.year = now.year
     @new_monthly.month = now.month
     @year_collection = [now.year - 1, now.year ,now.year + 1]
-    @month_collection = [1,2,3,4,5,6,7,8,9,10,11,12]
 
     if params[:monthly_id]
       @monthly = Monthly.find(params[:monthly_id])
@@ -42,13 +41,12 @@ class AttendancesController < ApplicationController
   # GET /attendances/new.json
   def new
     @monthly = flash[:monthly]
-
-    @attendance = Attendance.new
+    flash[:monthly] = @monthly
 
     now = Time.now
-    @attendance.date = Date.new(@monthly.year, @monthly.month, now.day)
-    @attendance.in = Time.local(now.year, now.month, now.day, 9)
-    @attendance.out = Time.local(now.year, now.month, now.day, 17, 30)
+    @attendance = Attendance.new
+    @attendance.in = Time.local(@monthly.year, @monthly.month, now.day, 9)
+    @attendance.out = Time.local(@monthly.year, @monthly.month, now.day, 17, 30)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -66,8 +64,9 @@ class AttendancesController < ApplicationController
   # POST /attendances
   # POST /attendances.json
   def create
+    monthly = flash[:monthly]
     @attendance = Attendance.new(params[:attendance])
-    monthly = Monthly.where(:year => @attendance.date.year, :month => @attendance.date.month).first
+    @attendance.date = Date.new(monthly.year, monthly.month, params[:day_of_date].to_i)
 
     # Change date of in and out.
     @attendance.in = Time.local(
@@ -82,6 +81,7 @@ class AttendancesController < ApplicationController
         format.html { redirect_to :action => 'index', :monthly_id => monthly.id }
         format.json { render json: @attendance, status: :created, location: @attendance }
       else
+        @monthly = monthly
         format.html { render action: "new" }
         format.json { render json: @attendance.errors, status: :unprocessable_entity }
       end
