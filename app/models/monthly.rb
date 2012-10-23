@@ -4,6 +4,8 @@ class Monthly
   field :month, :type => Integer
   field :status, :type => String
 
+  embeds_many :attendances
+
   validates :year, :presence => true, :uniqueness => {:scope => [:month]}
   validates :month, :presence => true
 

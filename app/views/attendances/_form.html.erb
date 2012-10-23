@@ -1,4 +1,5 @@
 <%= form_for @attendance, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.hidden_field :monthly_id, :value => @monthly %>
   <fieldset>
 
     <% if @attendance.errors.any? %>
@@ -39,8 +40,8 @@
     </div>
     <div class="control-group">
       <div class="controls">
-        <%= f.submit :class => "btn btn-primary"%>
-        <%= link_to 'Cancel', attendances_path, :class => "btn" %>
+        <%= f.submit :class => "btn btn-primary" %>
+        <%= link_to 'Cancel', attendances_path(:monthly_id => @monthly), :class => "btn" %>
       </div>
     </div>
   </fieldset>
