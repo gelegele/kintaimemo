@@ -7,6 +7,7 @@ gem 'rails', '3.2.6'
 
 gem 'mongoid','>=2.4.0','<3.0.0'
 gem 'bson_ext','>=1.6.0'
+gem "mongoid_session_store"
 # group :development, :test do
 #   gem 'sqlite3'
 # end
